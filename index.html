@@ -15,7 +15,10 @@
   <!-- Sticky Pill Navigation Header -->
   <header>
     <div class="nav-container">
-      <ul class="nav-links">
+      <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="nav-menu">
         <li class="nav-link active"><a href="#home">HOME</a></li>
         <li class="nav-link"><a href="#about">ABOUT EVENT</a></li>
         <li class="nav-link"><a href="#divisions">DIVISIONS</a></li>
@@ -292,14 +295,6 @@
       <div class="section-title-wrap" data-reveal="fade-left">
         <h2 class="section-title">Frequently<br>Asked Question</h2>
         <p>///get detailed answers to the most commonly asked questions and important information you need.</p>
-        
-        <!-- Figma solid outline looping arrow, rotated -38deg -->
-        <svg class="faq-loop-arrow" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Fluid single stroke loop: #5B2711 at 13.21px thickness -->
-          <path d="M 10,90 L 70,90 C 115,90 145,35 145,85 C 145,135 75,135 85,85 C 92,50 120,60 160,100" stroke="#5B2711" stroke-width="13.21" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <!-- Solid triangular arrowhead attached directly to the stroke endpoint (160, 100) -->
-          <path d="M 160,100 L 140,96 L 152,118 Z" fill="#5B2711" stroke="#5B2711" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
       </div>
 
       <div class="faq-list">

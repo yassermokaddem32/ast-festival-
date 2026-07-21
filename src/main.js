@@ -700,9 +700,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Start printing initial logs, then send API request
+      // Start printing initial logs, then send API request to production backend
       printLines(initialLines, () => {
-        fetch('http://localhost:8000/register', {
+        fetch('https://ast-festival-production.up.railway.app/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -712,7 +712,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => {
           if (!response.ok) {
             return response.json().then(data => {
-              throw new Error(data.detail || "Server validation failed.");
+              const errMsg = typeof data.detail === 'string' ? data.detail : (Array.isArray(data.detail) ? data.detail.map(d => d.msg || JSON.stringify(d)).join(', ') : JSON.stringify(data.detail));
+              throw new Error(errMsg || `Server error (Status ${response.status})`);
+            }).catch(err => {
+              throw new Error(err.message || `Server responded with HTTP ${response.status}`);
             });
           }
           return response.json();
@@ -720,32 +723,31 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           const successLines = [
             `[CONN] Response received. Status: 201 Created`,
-            `[SUCCESS] Database transaction complete. Row appended.`,
-            `[SUCCESS] Manifest accepted. Clearance ID: 0x${Math.floor(Math.random()*16777215).toString(16).toUpperCase()}`,
+            `[SUCCESS] Database transaction complete. Google Sheet row appended.`,
+            `[SUCCESS] Manifest accepted. Clearance ID: ${data.id || '0x' + Math.floor(Math.random()*16777215).toString(16).toUpperCase()}`,
             `>>> WELCOME TO THE ARENA, ${teamLeader.toUpperCase()}. <<<`
           ];
-          printLines(successLines);
+          printLines(successLines, () => {
+            if (closeTerminalBtn) {
+              closeTerminalBtn.textContent = 'REGISTRATION SUCCESSFUL - DISMISS';
+              closeTerminalBtn.style.background = '#39ff14';
+              closeTerminalBtn.style.color = '#000000';
+            }
+          });
         })
         .catch(err => {
-          if (err instanceof TypeError && (err.message.includes('Failed to fetch') || err.message.includes('failed to fetch') || err.message.includes('NetworkError'))) {
-            // Local server offline -> graceful fallback to offline simulation mode
-            const offlineLines = [
-              `[WARN] Local API Server [http://localhost:8000] is offline.`,
-              `[WARN] Activating Offline Simulation Mode...`,
-              `[CONN] Simulating AST Local Grid database sync...`,
-              `[SUCCESS] Simulation sync complete. Local buffer cached.`,
-              `[SUCCESS] Manifest accepted (OFFLINE). Clearance ID: 0x${Math.floor(Math.random()*16777215).toString(16).toUpperCase()}`,
-              `>>> WELCOME TO THE ARENA, ${teamLeader.toUpperCase()} (OFFLINE). <<<`
-            ];
-            printLines(offlineLines);
-          } else {
-            const errorLines = [
-              `[ERROR] Registration rejected by server.`,
-              `[ERROR] Details: ${err.message}`,
-              `[ABORT] Clearance DENIED.`
-            ];
-            printLines(errorLines);
-          }
+          const errorLines = [
+            `[ERROR] Registration request failed.`,
+            `[ERROR] Server Details: ${err.message}`,
+            `[ABORT] Clearance DENIED. Please resolve the issue and try again.`
+          ];
+          printLines(errorLines, () => {
+            if (closeTerminalBtn) {
+              closeTerminalBtn.textContent = 'DISMISS ERROR & FIX FORM';
+              closeTerminalBtn.style.background = '#ff3333';
+              closeTerminalBtn.style.color = '#ffffff';
+            }
+          });
         });
       });
     });

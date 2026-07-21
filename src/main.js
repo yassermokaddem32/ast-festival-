@@ -5,12 +5,18 @@ import eventPhoto3 from './assets/event_photo_3.jpg';
 import eventPhoto4 from './assets/event_photo_4.jpg';
 import eventPhoto5 from './assets/event_photo_5.jpg';
 import logoImg from './assets/logo.png';
+import astFestivalLogo from './assets/ast_festival_logo.png';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Set footer logo source dynamically from bundled asset
+  // Set logo sources dynamically from bundled assets
   const footerLogo = document.querySelector('.footer-logo');
   if (footerLogo) {
     footerLogo.src = logoImg;
+  }
+
+  const rotatingLogo = document.querySelector('.about-rotating-logo');
+  if (rotatingLogo) {
+    rotatingLogo.src = astFestivalLogo;
   }
 
   // --- Header Scroll State & Scrollspy ---

@@ -513,6 +513,15 @@ section {
   text-underline-offset: 4px;
 }
 
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .about-circle-container {
   display: flex;
   justify-content: flex-end;
@@ -521,13 +530,31 @@ section {
 }
 
 .about-circle {
-  width: 320px; /* Increased size slightly */
+  width: 320px;
   height: 320px;
   border-radius: 50%;
-  background-color: #e3e3e3; /* Flat light gray fill */
-  box-shadow: none; /* No shadow */
-  filter: none; /* No glow or futuristic effects */
-  transform: translateY(-20px); /* Move upward slightly to visually match Figma */
+  background-color: #5B2711; /* Matching 'FESTIVAL' brown color */
+  box-shadow: 0 15px 45px rgba(91, 39, 17, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.about-rotating-logo {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: auto;
+  transform-origin: center center;
+  will-change: transform;
+  animation: spinSlow 30s linear infinite;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
 }
 
 /* Division Selector Section */
@@ -3351,14 +3378,26 @@ h1, h2, h3, h4, p, span, a {
   }
 
   .about-circle-container {
-    width: 180px !important;
-    height: 180px !important;
-    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 10px auto 0 auto !important;
   }
 
   .about-circle {
-    width: 180px !important;
-    height: 180px !important;
+    width: 220px !important;
+    height: 220px !important;
+    padding: 28px !important;
+    border-radius: 50% !important;
+    background-color: #5B2711 !important;
+    box-shadow: 0 10px 30px rgba(91, 39, 17, 0.4) !important;
+  }
+
+  .about-rotating-logo {
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: contain !important;
   }
 
   /* Division Selector Cards */

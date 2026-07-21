@@ -3177,7 +3177,7 @@ html, body {
   }
 
   .hero-title {
-    font-size: clamp(2.8rem, 11vw, 5.2rem) !important;
+    font-size: clamp(3.2rem, 12vw, 6rem) !important;
     line-height: 1.02 !important;
     letter-spacing: 0.01em !important;
     margin-bottom: 14px !important;
@@ -3193,7 +3193,7 @@ html, body {
   }
 
   .hero-subtitle {
-    font-size: clamp(0.9rem, 3.2vw, 1.25rem) !important;
+    font-size: clamp(0.95rem, 3.5vw, 1.35rem) !important;
     margin-bottom: 24px !important;
     text-align: center !important;
     line-height: 1.35 !important;
@@ -3267,13 +3267,13 @@ html, body {
   }
 
   .about-title {
-    font-size: clamp(2.2rem, 8vw, 4.2rem) !important;
+    font-size: clamp(2.8rem, 9.5vw, 5.2rem) !important;
     text-align: center !important;
     margin-bottom: 6px !important;
   }
 
   .about-subtitle {
-    font-size: 0.85rem !important;
+    font-size: 0.88rem !important;
     text-align: center !important;
     display: block !important;
     margin-bottom: 22px !important;
@@ -3320,7 +3320,7 @@ html, body {
   }
 
   .divisions-title {
-    font-size: clamp(2.2rem, 8vw, 4.2rem) !important;
+    font-size: clamp(2.8rem, 9.5vw, 5.2rem) !important;
     text-align: center !important;
   }
 
@@ -3359,7 +3359,7 @@ html, body {
   }
 
   .carousel-main-title {
-    font-size: clamp(2.2rem, 8vw, 4.2rem) !important;
+    font-size: clamp(2.8rem, 9.5vw, 5.2rem) !important;
     text-align: center !important;
   }
 
@@ -3408,9 +3408,12 @@ html, body {
     margin-bottom: 24px !important;
   }
 
-  .section-title {
-    font-size: clamp(2.2rem, 8vw, 4.2rem) !important;
+  #registration .section-title {
+    font-size: clamp(1.8rem, 6.8vw, 3.2rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.01em !important;
     text-align: center !important;
+    word-break: break-word !important;
   }
 
   #registration-form {
@@ -3535,7 +3538,7 @@ html, body {
   }
 
   .old-events-title {
-    font-size: clamp(2.4rem, 8vw, 4.2rem) !important;
+    font-size: clamp(3rem, 10vw, 5.5rem) !important;
     text-align: center !important;
     margin-bottom: 24px !important;
   }
@@ -3619,7 +3622,7 @@ html, body {
   }
 
   .footer-title {
-    font-size: clamp(2.8rem, 10vw, 5.2rem) !important;
+    font-size: clamp(3.2rem, 11vw, 6rem) !important;
     margin-bottom: 8px !important;
     text-align: center !important;
   }

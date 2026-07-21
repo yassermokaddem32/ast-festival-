@@ -3078,7 +3078,7 @@ html {
 
 /* ==========================================
 /* ==========================================================================
-   MOBILE-FIRST RESPONSIVE ARCHITECTURE (Mobile <768px, Tablet 768px-1024px, Desktop >1024px)
+   MOBILE-FIRST RESPONSIVE ARCHITECTURE & BREAKPOINT SYSTEM
    ========================================================================== */
 
 /* Universal Responsive & Touch Standards */
@@ -3086,6 +3086,12 @@ html, body {
   overflow-x: hidden !important;
   max-width: 100vw !important;
   width: 100% !important;
+}
+
+h1, h2, h3, h4, p, span, a {
+  max-width: 100% !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .mobile-nav-toggle {
@@ -3105,11 +3111,11 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
-   MOBILE BREAKPOINT (< 768px) - Dedicated Touch-First Redesign
+   MOBILE BREAKPOINT (< 768px) - Complete Dedicated Redesign
    -------------------------------------------------------------------------- */
 @media (max-width: 767.98px) {
 
-  /* 1. Header & Navigation */
+  /* 1. Header & Mobile Navigation Drawer */
   header {
     top: 10px !important;
     width: 92vw !important;
@@ -3166,43 +3172,64 @@ html, body {
     box-sizing: border-box !important;
   }
 
-  /* 2. Hero Section */
+  /* 2. Hero Section - Mobile Background & Layout Optimization */
   .hero {
-    padding: 120px 16px 50px 16px !important;
-    min-height: auto !important;
-    text-align: center !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
+    padding: 110px 16px 50px 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    overflow: hidden !important;
   }
 
-  .hero-title {
-    font-size: clamp(3.2rem, 12vw, 6rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: 0.01em !important;
-    margin-bottom: 14px !important;
-    text-align: center !important;
+  .hero-bg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center !important;
+    opacity: 0.65 !important;
+    filter: contrast(115%) brightness(75%) !important;
+    z-index: 0 !important;
   }
 
   .hero-container {
+    position: relative !important;
+    z-index: 2 !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 500px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 10vw, 5.0rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: 0.01em !important;
+    margin-bottom: 12px !important;
+    text-align: center !important;
   }
 
   .hero-subtitle {
-    font-size: clamp(0.95rem, 3.5vw, 1.35rem) !important;
-    margin-bottom: 24px !important;
+    font-size: clamp(0.95rem, 3.4vw, 1.25rem) !important;
+    margin-bottom: 22px !important;
     text-align: center !important;
     line-height: 1.35 !important;
   }
 
   .hero-countdown-label {
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
     letter-spacing: 0.08em !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 10px !important;
     text-align: center !important;
   }
 
@@ -3212,7 +3239,7 @@ html, body {
     gap: 8px !important;
     width: 100% !important;
     max-width: 340px !important;
-    margin: 0 auto 28px auto !important;
+    margin: 0 auto 24px auto !important;
   }
 
   .hero-countdown-item {
@@ -3224,7 +3251,7 @@ html, body {
   }
 
   .hero-countdown-value {
-    font-size: 1.35rem !important;
+    font-size: 1.3rem !important;
   }
 
   .hero-countdown-unit {
@@ -3232,8 +3259,8 @@ html, body {
   }
 
   .hero-deployment-label {
-    font-size: 0.8rem !important;
-    margin-bottom: 12px !important;
+    font-size: 0.78rem !important;
+    margin-bottom: 10px !important;
   }
 
   .hero-cta {
@@ -3241,14 +3268,14 @@ html, body {
     flex-direction: column !important;
     width: 100% !important;
     max-width: 300px !important;
-    gap: 14px !important;
+    gap: 12px !important;
     margin: 0 auto !important;
   }
 
   .btn-hero {
     width: 100% !important;
     min-height: 48px !important;
-    font-size: 0.98rem !important;
+    font-size: 0.96rem !important;
     border-radius: 50px !important;
     display: flex !important;
     align-items: center !important;
@@ -3256,20 +3283,51 @@ html, body {
     box-sizing: border-box !important;
   }
 
-  /* 3. About AST Festival Section */
-  #about {
-    padding: 55px 16px !important;
+  /* 3. Section Titles Uniformity & Spacing */
+  .section-title-wrap {
+    text-align: center !important;
+    margin-bottom: 24px !important;
+    width: 100% !important;
   }
 
+  .about-title,
+  .divisions-title,
+  .carousel-main-title,
+  #faq .section-title,
+  #aboutus .about-title,
+  .old-events-title,
+  .footer-title {
+    font-size: clamp(2.5rem, 8.5vw, 4.2rem) !important;
+    line-height: 1.05 !important;
+    text-align: center !important;
+    margin: 0 0 10px 0 !important;
+  }
+
+  #registration .section-title {
+    font-size: clamp(2.0rem, 7.2vw, 3.6rem) !important;
+    line-height: 1.08 !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    margin: 0 0 10px 0 !important;
+  }
+
+  /* 4. Normalized Section Wrappers */
+  #about,
+  #divisions,
+  #registration,
+  #faq,
+  #aboutus,
+  #old-events,
+  .carousel-section {
+    padding: 60px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* About AST Festival Section */
   .about-inner {
     width: 100% !important;
     padding: 0 !important;
-  }
-
-  .about-title {
-    font-size: clamp(2.8rem, 9.5vw, 5.2rem) !important;
-    text-align: center !important;
-    margin-bottom: 6px !important;
   }
 
   .about-subtitle {
@@ -3309,19 +3367,10 @@ html, body {
     height: 180px !important;
   }
 
-  /* 4. Division Selector Cards Section */
-  #divisions {
-    padding: 55px 16px !important;
-  }
-
+  /* Division Selector Cards */
   .divisions-inner {
     width: 100% !important;
     padding: 0 !important;
-  }
-
-  .divisions-title {
-    font-size: clamp(2.8rem, 9.5vw, 5.2rem) !important;
-    text-align: center !important;
   }
 
   .divisions-subtitle {
@@ -3348,18 +3397,9 @@ html, body {
     font-size: 2.1rem !important;
   }
 
-  /* 5. Senior & Junior Competition Carousels */
-  .carousel-section {
-    padding: 50px 0 !important;
-  }
-
+  /* Competition Carousels */
   .carousel-inner {
     padding: 0 16px !important;
-    text-align: center !important;
-  }
-
-  .carousel-main-title {
-    font-size: clamp(2.8rem, 9.5vw, 5.2rem) !important;
     text-align: center !important;
   }
 
@@ -3398,24 +3438,7 @@ html, body {
     font-size: 2.1rem !important;
   }
 
-  /* 6. Manifest Registration Form */
-  #registration {
-    padding: 55px 16px !important;
-  }
-
-  .section-title-wrap {
-    text-align: center !important;
-    margin-bottom: 24px !important;
-  }
-
-  #registration .section-title {
-    font-size: clamp(1.8rem, 6.8vw, 3.2rem) !important;
-    line-height: 1.08 !important;
-    letter-spacing: 0.01em !important;
-    text-align: center !important;
-    word-break: break-word !important;
-  }
-
+  /* Manifest Registration Form */
   #registration-form {
     padding: 22px 16px !important;
     border-radius: 18px !important;
@@ -3442,7 +3465,7 @@ html, body {
   }
 
   .form-input {
-    font-size: 16px !important; /* Prevents mobile browser auto-zoom */
+    font-size: 16px !important;
     min-height: 48px !important;
     padding: 12px 14px !important;
     border-radius: 8px !important;
@@ -3465,23 +3488,12 @@ html, body {
     justify-content: center !important;
   }
 
-  /* 7. Frequently Asked Questions Section */
-  #faq {
-    padding: 55px 16px !important;
-    text-align: center !important;
-  }
-
+  /* FAQ Section */
   .faq-list {
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
-  }
-
-  .faq-item {
-    width: 100% !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
   }
 
   .faq-header {
@@ -3508,11 +3520,7 @@ html, body {
     text-align: left !important;
   }
 
-  /* 8. About Us Section */
-  #aboutus {
-    padding: 55px 16px 30px 16px !important;
-  }
-
+  /* About Us Section */
   .about-us-container {
     width: 100% !important;
     padding: 0 !important;
@@ -3526,21 +3534,11 @@ html, body {
     max-width: 100% !important;
   }
 
-  /* 9. Old Events Section Carousel */
-  #old-events {
-    padding: 50px 16px 75px 16px !important;
-  }
-
+  /* Old Events Carousel */
   .old-events-inner {
     width: 100% !important;
     padding: 0 !important;
     align-items: center !important;
-  }
-
-  .old-events-title {
-    font-size: clamp(3rem, 10vw, 5.5rem) !important;
-    text-align: center !important;
-    margin-bottom: 24px !important;
   }
 
   .old-events-stack-wrap {
@@ -3548,8 +3546,6 @@ html, body {
     height: 480px !important;
     display: flex !important;
     justify-content: center !important;
-    align-items: center !important;
-    position: relative !important;
   }
 
   .old-event-card.card-pos-center {
@@ -3595,7 +3591,7 @@ html, body {
     height: 52px !important;
   }
 
-  /* 10. Footer Section */
+  /* Footer Section */
   footer {
     padding: 35px 16px 55px 16px !important;
   }
@@ -3619,12 +3615,6 @@ html, body {
     text-align: center !important;
     flex: unset !important;
     height: auto !important;
-  }
-
-  .footer-title {
-    font-size: clamp(3.2rem, 11vw, 6rem) !important;
-    margin-bottom: 8px !important;
-    text-align: center !important;
   }
 
   .footer-subtitle {
@@ -3672,11 +3662,58 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
+   EXTRA SMALL PHONE BREAKPOINT (< 375px) e.g., iPhone SE
+   -------------------------------------------------------------------------- */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 2.6rem !important;
+  }
+
+  .about-title,
+  .divisions-title,
+  .carousel-main-title,
+  #faq .section-title,
+  #aboutus .about-title,
+  .old-events-title,
+  .footer-title {
+    font-size: 2.1rem !important;
+  }
+
+  #registration .section-title {
+    font-size: 1.7rem !important;
+  }
+
+  .hero-countdown {
+    gap: 4px !important;
+    max-width: 310px !important;
+  }
+
+  .hero-countdown-value {
+    font-size: 1.15rem !important;
+  }
+
+  .hero-countdown-unit {
+    font-size: 0.6rem !important;
+  }
+
+  .carousel-card {
+    min-width: 220px !important;
+    width: 220px !important;
+    height: 340px !important;
+  }
+
+  .old-event-card.card-pos-center {
+    width: 92vw !important;
+    max-width: 310px !important;
+    height: 430px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
    TABLET BREAKPOINT (768px – 1024px) - Balanced Dual-Column Adaptation
    -------------------------------------------------------------------------- */
 @media (min-width: 768px) and (max-width: 1024px) {
 
-  /* Header & Navigation */
   header {
     top: 14px !important;
     width: 90% !important;
@@ -3691,16 +3728,14 @@ html, body {
     padding: 8px 12px !important;
   }
 
-  /* Hero Section */
   .hero-title {
-    font-size: clamp(4.5rem, 10vw, 8rem) !important;
+    font-size: clamp(4.2rem, 9.5vw, 7.5rem) !important;
   }
 
   .hero-subtitle {
-    font-size: 1.4rem !important;
+    font-size: 1.35rem !important;
   }
 
-  /* Division Cards */
   .divisions-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -3708,17 +3743,15 @@ html, body {
   }
 
   .division-card {
-    height: 320px !important;
+    height: 310px !important;
   }
 
-  /* Competition Carousels */
   .carousel-card {
-    min-width: 270px !important;
-    width: 270px !important;
-    height: 410px !important;
+    min-width: 260px !important;
+    width: 260px !important;
+    height: 400px !important;
   }
 
-  /* Registration Form */
   .form-meta-row {
     flex-wrap: wrap !important;
     gap: 16px !important;
@@ -3728,24 +3761,17 @@ html, body {
     flex: 1 1 45% !important;
   }
 
-  /* Footer Section */
   .footer-card {
     width: 92vw !important;
     height: auto !important;
     padding: 50px 36px !important;
     flex-direction: column !important;
-    gap: 36px !important;
-    text-align: center !important;
-  }
-
-  .footer-left {
-    align-items: center !important;
     text-align: center !important;
     width: 100% !important;
   }
 
   .footer-title {
-    font-size: clamp(4rem, 10vw, 8.5rem) !important;
+    font-size: clamp(3.8rem, 9.5vw, 8rem) !important;
   }
 
   .footer-right {
@@ -3758,14 +3784,8 @@ html, body {
     height: auto !important;
   }
 
-  .footer-social-grid {
-    position: static !important;
-  }
-
   .footer-logo {
     position: static !important;
     width: 210px !important;
   }
 }
-
-

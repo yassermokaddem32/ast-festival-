@@ -3382,22 +3382,34 @@ h1, h2, h3, h4, p, span, a {
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    margin: 10px auto 0 auto !important;
+    margin: 12px auto 0 auto !important;
   }
 
   .about-circle {
     width: 220px !important;
     height: 220px !important;
-    padding: 28px !important;
     border-radius: 50% !important;
-    background-color: #5B2711 !important;
-    box-shadow: 0 10px 30px rgba(91, 39, 17, 0.4) !important;
+    background-color: #EFE9E7 !important; /* High contrast cream background */
+    box-shadow: 0 12px 35px rgba(91, 39, 17, 0.22) !important;
+    border: 2px solid rgba(91, 39, 17, 0.15) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
   }
 
   .about-rotating-logo {
     width: 80% !important;
     height: 80% !important;
     object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: auto !important;
+    transform-origin: center center !important;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(55%) saturate(2200%) hue-rotate(345deg) brightness(85%) contrast(95%) !important; /* Exact #5B2711 brown/orange color match */
   }
 
   /* Division Selector Cards */

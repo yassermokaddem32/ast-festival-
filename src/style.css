@@ -132,7 +132,7 @@ header {
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
-  width: 823px; /* Same width as Figma Hero content container */
+  width: min(823px, 92vw); /* Fluid: caps at Figma width but never overflows small screens */
   height: 60px; /* Same height as Figma */
   background: rgba(0, 0, 0, 0.45); /* Transparent dark background */
   backdrop-filter: blur(12px) saturate(180%);
@@ -268,7 +268,7 @@ header {
 
 .hero-title {
   font-family: 'The Mezirane', sans-serif;
-  font-size: 255.3px; /* Exact size from Figma */
+  font-size: clamp(3.5rem, 13vw, 255.3px); /* Fluid: scales with viewport, caps at exact Figma size */
   font-weight: 400; /* Regular weight, do NOT simulate bold */
   font-style: normal;
   color: #ffffff; /* Solid white */
@@ -286,7 +286,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 823px; /* Exact width from Figma */
+  width: min(823px, 90vw); /* Fluid: caps at Figma width but never overflows */
   margin: 0 auto;
   gap: 19px; /* Exact vertical gap */
 }
@@ -456,7 +456,7 @@ section {
 
 .about-title {
   font-family: 'The Mezirane', sans-serif;
-  font-size: 175.15px; /* Exact font size from Figma */
+  font-size: clamp(2.8rem, 9vw, 175.15px); /* Fluid: scales with viewport, caps at exact Figma size */
   font-weight: 400; /* Regular weight, do NOT simulate bold */
   font-style: normal;
   color: #000000;
@@ -485,20 +485,22 @@ section {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 555.13px 1fr; /* Exact paragraph width 555.13px */
+  grid-template-columns: minmax(0, 555.13px) 1fr; /* Fluid: caps at Figma width, shrinks instead of overflowing */
   gap: 40px;
   width: 100%;
   align-items: center; /* Symmetrical centering */
 }
 
 .about-content {
-  max-width: 555.13px;
-  height: 280px; /* Exact block height from Figma */
+  max-width: 100%;
+  width: 100%;
+  height: auto; /* Was fixed 280px, causing text to clip/overlap when it wrapped to more lines */
+  min-height: 280px;
 }
 
 .about-paragraph {
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 29.69px; /* Exact size from Figma */
+  font-size: clamp(1.05rem, 2vw, 29.69px); /* Fluid: caps at exact Figma size */
   font-weight: 700; /* Bold weight */
   color: #000000;
   line-height: 100%; /* 100% line height */
@@ -576,61 +578,68 @@ section {
 }
 
 .divisions-inner {
-  max-width: 1004px; /* Exact width to fit two 487px cards and a 30px gap */
+  max-width: 1004px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .divisions-title {
   font-family: 'The Mezirane', sans-serif;
-  font-size: 169.01px; /* Exact size from Figma */
-  font-weight: 400; /* Regular weight, do NOT simulate bold */
+  font-size: clamp(3.2rem, 11.2vw, 10.5rem);
+  font-weight: 400;
   font-style: normal;
   color: #000000;
   margin-top: 0;
   margin-bottom: 2px;
   letter-spacing: 0%;
   line-height: 100%;
-  white-space: nowrap; /* Keep on ONE line */
+  max-width: 100%;
 }
 
 .divisions-title-brown {
-  color: #5B2711; /* Exact color #5B2711 */
+  color: #5B2711;
 }
 
 .divisions-subtitle {
   display: block;
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 24px; /* Exact size from Figma */
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
   font-weight: 700;
   line-height: 131%;
   letter-spacing: 0%;
-  color: #5B2711; /* Exact color #5B2711 */
+  color: #5B2711;
   text-transform: uppercase;
   margin-bottom: 40px;
+  max-width: 100%;
 }
 
 .divisions-grid {
   display: grid;
-  grid-template-columns: 487px 487px; /* Two columns matching exact card width */
-  gap: 30px; /* Spacing between cards */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: clamp(20px, 3vw, 30px);
   width: 100%;
+  box-sizing: border-box;
 }
 
 .division-card {
   position: relative;
-  width: 487px; /* Exact card width */
-  height: 606px; /* Exact card height */
-  border-radius: 36px; /* Exact border radius */
+  width: 100%;
+  max-width: 487px;
+  aspect-ratio: 487 / 606;
+  min-height: 380px;
+  margin: 0 auto;
+  border-radius: 36px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  filter: grayscale(100%) contrast(100%); /* Grayscale filter to match Figma */
+  filter: grayscale(100%) contrast(100%);
   transition: filter 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .division-card:hover {
@@ -862,7 +871,7 @@ section {
 
 #senior-carousel-section .carousel-main-title {
   font-family: 'The Mezirane', sans-serif;
-  font-size: 177px; /* Exact font size */
+  font-size: clamp(2.8rem, 9.5vw, 177px); /* Fluid: caps at exact Figma size */
   font-weight: 400; /* Regular weight */
   font-style: normal;
   line-height: 131%;
@@ -967,7 +976,7 @@ section {
   left: 24px;
   font-family: 'The Mezirane', sans-serif;
   font-weight: 400;
-  font-size: 96px; /* Exact size */
+  font-size: clamp(2rem, 5.5vw, 96px); /* Fluid: caps at exact Figma size */
   line-height: 84%; /* Exact line-height */
   color: #ffffff; /* White */
   text-transform: uppercase;
@@ -1082,7 +1091,7 @@ section {
 
 #junior-carousel-section .carousel-main-title {
   font-family: 'The Mezirane', sans-serif;
-  font-size: 177px; /* Exact font size */
+  font-size: clamp(2.8rem, 9.5vw, 177px); /* Fluid: caps at exact Figma size */
   font-weight: 400; /* Regular weight */
   font-style: normal;
   line-height: 131%;
@@ -1184,7 +1193,7 @@ section {
   left: 24px;
   font-family: 'The Mezirane', sans-serif;
   font-weight: 400;
-  font-size: 96px; /* Exact size */
+  font-size: clamp(2rem, 5.5vw, 96px); /* Fluid: caps at exact Figma size */
   line-height: 84%; /* Exact line-height */
   color: #ffffff; /* White */
   text-transform: uppercase;
@@ -1628,16 +1637,17 @@ footer::before {
 }
 
 .footer-card {
-  width: 1153.5px !important;
+  width: min(1153.5px, 94vw) !important;
   max-width: 100% !important;
-  height: 360px !important; /* adjusted figma height */
+  min-height: 320px !important;
+  height: auto !important;
   border-radius: 19px !important;
   background: linear-gradient(180deg, #EFE9E7 0%, #5B2711 100%) !important;
   display: flex !important;
   flex-direction: row !important;
-  justify-content: space-between !important; /* pushes columns to opposite sides */
+  justify-content: space-between !important;
   align-items: center !important;
-  padding: 40px 80px !important;
+  padding: clamp(24px, 4vw, 40px) clamp(24px, 5vw, 80px) !important;
   box-sizing: border-box !important;
   position: relative !important;
   margin: 0 auto !important;
@@ -1658,7 +1668,7 @@ footer::before {
 
 .footer-title {
   font-family: 'The Mezirane', sans-serif !important;
-  font-size: 180px !important;
+  font-size: clamp(2.5rem, 9vw, 180px) !important; /* Fluid: caps at exact Figma size */
   font-weight: 400 !important;
   line-height: 100% !important;
   letter-spacing: 0 !important;
@@ -2093,7 +2103,7 @@ footer {
 
 #registration .section-title {
   font-family: 'The Mezirane', sans-serif !important;
-  font-size: 177px !important;
+  font-size: clamp(2.8rem, 9.5vw, 177px) !important; /* Fluid: caps at exact Figma size */
   font-weight: 400 !important;
   line-height: 100% !important;
   letter-spacing: 0 !important;

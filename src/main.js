@@ -1,6 +1,18 @@
 import './style.css';
+import eventPhoto1 from './assets/event_photo_1.jpg';
+import eventPhoto2 from './assets/event_photo_2.jpg';
+import eventPhoto3 from './assets/event_photo_3.jpg';
+import eventPhoto4 from './assets/event_photo_4.jpg';
+import eventPhoto5 from './assets/event_photo_5.jpg';
+import logoImg from './assets/logo.png';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Set footer logo source dynamically from bundled asset
+  const footerLogo = document.querySelector('.footer-logo');
+  if (footerLogo) {
+    footerLogo.src = logoImg;
+  }
+
   // --- Header Scroll State & Scrollspy ---
   const header = document.querySelector('header');
   const sections = document.querySelectorAll('section[id]');
@@ -137,57 +149,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Dedicated Old Events Section Component ---
   const oldEvents = [
-    {
-      title: "AST FESTIVAL 2024",
-      category: "JUNIOR ALL-TERRAIN & COMBAT",
-      year: "2024",
-      location: "ALGIERS, ALGERIA",
-      image: "src/assets/event_photo_1.jpg"
-    },
-    {
-      title: "NATIONAL AI EXPEDITION",
-      category: "AUTONOMOUS SYSTEMS & DRONES",
-      year: "2025",
-      location: "ENSTA HIGH-TECH ARENA",
-      image: "src/assets/event_photo_2.jpg"
-    },
-    {
-      title: "HEAVYWEIGHT COMBAT CUP",
-      category: "ROBOT FIGHTER & SUMO",
-      year: "2023",
-      location: "MAIN TECH COMPLEX",
-      image: "src/assets/event_photo_3.jpg"
-    },
-    {
-      title: "AST HACKATHON & INNOVATION",
-      category: "AI VISION & HARDWARE",
-      year: "2024",
-      location: "NH-SAST AUDITORIUM",
-      image: "src/assets/event_photo_4.jpg"
-    },
-    {
-      title: "SEED ROBOTICS SUMMIT",
-      category: "FOUNDATIONAL & YOUTH STEM",
-      year: "2023",
-      location: "NANOSCIENCE HALL",
-      image: "src/assets/event_photo_5.jpg"
-    }
+    { image: eventPhoto1 },
+    { image: eventPhoto2 },
+    { image: eventPhoto3 },
+    { image: eventPhoto4 },
+    { image: eventPhoto5 }
   ];
 
   let currentEventIndex = 0;
 
   function updateOldEventCard(cardIdPrefix, eventData) {
     const img = document.getElementById(`card-img-${cardIdPrefix}`);
-    const year = document.getElementById(`card-year-${cardIdPrefix}`);
-    const title = document.getElementById(`card-title-${cardIdPrefix}`);
-    const cat = document.getElementById(`card-cat-${cardIdPrefix}`);
-    const locText = document.getElementById(`card-loc-text-${cardIdPrefix}`);
-
     if (img) img.src = eventData.image;
-    if (year) year.textContent = `${eventData.year} EDITION`;
-    if (title) title.textContent = eventData.title;
-    if (cat) cat.textContent = eventData.category;
-    if (locText) locText.textContent = eventData.location;
   }
 
   function renderOldEventsStack() {

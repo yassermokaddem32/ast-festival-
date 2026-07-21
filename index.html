@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AST FESTIVAL | Autonomous Systems Technologies</title>
+  <meta name="description" content="Join the AST Festival, a high-intensity robotics tournament organized by the Autonomous Systems Technologies Club. Engineer the future and dominate the arena.">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  
+  <!-- FontAwesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sticky Pill Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li class="nav-link active"><a href="#home">HOME</a></li>
+        <li class="nav-link"><a href="#about">ABOUT EVENT</a></li>
+        <li class="nav-link"><a href="#divisions">DIVISIONS</a></li>
+        <li class="nav-link"><a href="#registration">REGISTRATION</a></li>
+        <li class="nav-link"><a href="#aboutus">ABOUT US</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-bg"></div>
+      
+      <h1 class="hero-title" data-reveal="fade-up">AST FESTIVAL</h1>
+      
+      <div class="hero-container">
+        <span class="hero-subtitle" data-reveal="fade-up" data-reveal-delay="1">ENGINEER THE FUTURE. DOMINATE THE ARENA.</span>
+        
+        <span class="hero-countdown-label" data-reveal="fade-scale" data-reveal-delay="2">SYSTEMS ONLINE IN:</span>
+        <div class="hero-countdown" data-reveal="fade-scale" data-reveal-delay="2">
+          <div class="hero-countdown-item">
+            <span class="hero-countdown-value" id="days">30</span>
+            <span class="hero-countdown-unit">day</span>
+          </div>
+          <div class="hero-countdown-item">
+            <span class="hero-countdown-value" id="hours">25</span>
+            <span class="hero-countdown-unit">hour</span>
+          </div>
+          <div class="hero-countdown-item">
+            <span class="hero-countdown-value" id="mins">00</span>
+            <span class="hero-countdown-unit">min</span>
+          </div>
+          <div class="hero-countdown-item">
+            <span class="hero-countdown-value" id="secs">00</span>
+            <span class="hero-countdown-unit">sec</span>
+          </div>
+        </div>
+        
+        <span class="hero-deployment-label" data-reveal="fade-up" data-reveal-delay="3">SELECT YOUR DEPLOYMENT:</span>
+        
+        <div class="hero-cta" data-reveal="fade-up" data-reveal-delay="3">
+          <a href="#senior-carousel-section" class="btn-hero btn-hero-primary">EXPLORE SENIOR</a>
+          <a href="#junior-carousel-section" class="btn-hero btn-hero-secondary">DISCOVER JUNIOR</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="decorative-dashed-line dashed-line-brown" style="top: 80px; transform: translateX(-50%) rotate(1.2deg);"></div>
+      <div class="decorative-dashed-line dashed-line-orange" style="bottom: 40px; transform: translateX(-50%) rotate(-0.8deg);"></div>
+      <div class="about-inner">
+        <h2 class="about-title" data-reveal="fade-left">ABOUT AST <span class="about-title-brown">FESTIVAL</span></h2>
+        <span class="about-subtitle" data-reveal="fade-left" data-reveal-delay="1">///From STEM To Combat Robotics</span>
+        
+        <div class="about-grid">
+          <div class="about-content" data-reveal="fade-up" data-reveal-delay="2">
+            <p class="about-paragraph">
+              The AST Festival Is A <u>High-Intensity</u> Robotics Tournament Where Elite Engineering Meets Raw Competition. It Serves As The Ultimate Proving Ground For Builders And Innovators To Push The Boundaries Of Mechanical Design, Autonomous Navigation,And Real-Time Computing.
+            </p>
+          </div>
+          
+          <div class="about-circle-container" data-reveal="fade-scale" data-reveal-delay="3">
+            <div class="about-circle"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Division Selector Section -->
+    <section id="divisions">
+      <div class="decorative-dashed-line dashed-line-brown" style="top: 50%; transform: translate(-50%, -50%) rotate(-1.5deg);"></div>
+      <div class="divisions-inner">
+        <h2 class="divisions-title" data-reveal="fade-up">SELECT YOUR <span class="divisions-title-brown">DIVISION</span></h2>
+        <span class="divisions-subtitle" data-reveal="fade-up" data-reveal-delay="1">///SELECT YOUR PATH AND EXPLORE HIGH-INTENSITY SENIOR ARENAS OR<br>INTERACTIVE JUNIOR STEM CHALLENGES</span>
+        
+        <div class="divisions-grid">
+          <!-- Senior Division Card -->
+          <div class="division-card division-card-senior" data-competition-id="senior-division" data-reveal="fade-left" data-reveal-delay="2">
+            <h3 class="division-card-title">SENIOR DIVISION</h3>
+          </div>
+  
+          <!-- Junior Division Card -->
+          <div class="division-card division-card-junior" data-competition-id="junior-division" data-reveal="fade-right" data-reveal-delay="3">
+            <h3 class="division-card-title">JUNIOR DIVISION</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Senior Carousel Section -->
+    <section id="senior-carousel-section" class="carousel-section">
+      <div class="decorative-dashed-line dashed-line-orange" style="bottom: 0px; transform: translateX(-50%) rotate(0.8deg);"></div>
+      <div class="carousel-inner" data-reveal="fade-up">
+        <h2 class="carousel-main-title"><span class="title-brown">SENIOR</span> DIVISION</h2>
+        <span class="carousel-subtitle">///HIGH-STAKES ENGINEERING TOURNAMENTS. BUILD, BATTLE, AND DOMINATE.</span>
+      </div>
+      
+      <div class="carousel-track-wrapper" data-reveal="fade-scale" data-reveal-delay="1">
+        <div class="carousel-track" id="senior-carousel">
+          <!-- Card 1: ALL-TERRAIN -->
+          <div class="carousel-card card-all-terrain" data-competition-id="all-terrain">
+            <h3 class="carousel-card-title">ALL-<br>TERRAIN</h3>
+          </div>
+          
+          <!-- Card 2: ROBOT FIGHTER -->
+          <div class="carousel-card card-robot-fighter" data-competition-id="robot-fighter">
+            <h3 class="carousel-card-title">ROBOT<br>FIGHTER</h3>
+          </div>
+          
+          <!-- Card 3: LINE FOLLOWER -->
+          <div class="carousel-card card-line-follower" data-competition-id="line-follower">
+            <h3 class="carousel-card-title">LINE<br>FOLLOWER</h3>
+          </div>
+          
+          <!-- Card 4: AUTONOMOUS SUMO -->
+          <div class="carousel-card card-sumo-bot" data-competition-id="autonomous-sumo">
+            <h3 class="carousel-card-title">AUTONOMOUS<br>SUMO</h3>
+          </div>
+          
+          <!-- Card 5: RC SUMO -->
+          <div class="carousel-card card-rc-sumo" data-competition-id="rc-sumo">
+            <h3 class="carousel-card-title">RC<br>SUMO</h3>
+          </div>
+          
+          <!-- Card 6: ROCKET LEAGUE -->
+          <div class="carousel-card card-rocket-league" data-competition-id="rocket-league">
+            <h3 class="carousel-card-title">ROCKET<br>LEAGUE</h3>
+          </div>
+          
+          <!-- Card 7: INNOVATION PROJECT -->
+          <div class="carousel-card card-innovation-project" data-competition-id="innovation-project">
+            <h3 class="carousel-card-title">INNOVATION<br>PROJECT</h3>
+          </div>
+          
+          <!-- Card 8: WATER ROBOT -->
+          <div class="carousel-card card-water-robot" data-competition-id="water-robot">
+            <h3 class="carousel-card-title">WATER<br>ROBOT</h3>
+          </div>
+          
+          <!-- Card 9: DRONES -->
+          <div class="carousel-card card-drones" data-competition-id="drones">
+            <h3 class="carousel-card-title">DRONES</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-inner" data-reveal="fade-up" data-reveal-delay="2">
+        <!-- Arrow Navigation centered beneath the cards -->
+        <div class="carousel-arrows">
+          <button class="carousel-arrow-btn" id="senior-prev" aria-label="Previous card">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <button class="carousel-arrow-btn" id="senior-next" aria-label="Next card">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Junior Carousel Section -->
+    <section id="junior-carousel-section" class="carousel-section">
+      <div class="decorative-dashed-line dashed-line-brown" style="bottom: 0px; transform: translateX(-50%) rotate(-1.2deg);"></div>
+      <div class="carousel-inner" data-reveal="fade-up">
+        <h2 class="carousel-main-title"><span class="title-brown">JUNIOR</span> DIVISION</h2>
+        <span class="carousel-subtitle">/// STEP UP TO THE CHALLENGE. COMPETE IN FAST-PACED FOUNDATIONAL ROBOTICS ARENAS.</span>
+      </div>
+      
+      <div class="carousel-track-wrapper" data-reveal="fade-scale" data-reveal-delay="1">
+        <div class="carousel-track" id="junior-carousel">
+          <!-- Card 1: JUNIOR ALL-TERRAIN -->
+          <div class="carousel-card card-junior-all-terrain" data-competition-id="junior-all-terrain">
+            <h3 class="carousel-card-title">JUNIOR ALL-<br>TERRAIN</h3>
+          </div>
+          
+          <!-- Card 2: JUNIOR ROCKET LEAGUE -->
+          <div class="carousel-card card-junior-rocket-league" data-competition-id="junior-rocket-league">
+            <h3 class="carousel-card-title">JUNIOR ROCKET<br>LEAGUE</h3>
+          </div>
+          
+          <!-- Card 3: JUNIOR LINE FOLLOWER -->
+          <div class="carousel-card card-junior-line-follower" data-competition-id="junior-line-follower">
+            <h3 class="carousel-card-title">JUNIOR LINE<br>FOLLOWER</h3>
+          </div>
+          
+          <!-- Card 4: JUNIOR DODGEBALL -->
+          <div class="carousel-card card-junior-dodgeball" data-competition-id="junior-dodgeball">
+            <h3 class="carousel-card-title">JUNIOR<br>DODGEBALL</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-inner" data-reveal="fade-up" data-reveal-delay="2">
+        <!-- Arrow Navigation centered beneath the cards -->
+        <div class="carousel-arrows">
+          <button class="carousel-arrow-btn" id="junior-prev" aria-label="Previous card">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <button class="carousel-arrow-btn" id="junior-next" aria-label="Next card">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration">
+      <div class="decorative-dashed-line dashed-line-orange" style="top: 20px; transform: translateX(-50%) rotate(1.5deg);"></div>
+      <div class="section-title-wrap" data-reveal="fade-up">
+        <h2 class="section-title"><span class="title-black">TOURNAMENT</span> <span class="title-brown">MANIFEST</span></h2>
+        <p>///Register Your Crew. Secure Your Spot.</p>
+      </div>
+
+      <form id="registration-form" data-reveal="fade-scale" data-reveal-delay="1">
+        <!-- Step 1: Robot Name & Division & Category -->
+        <div class="form-meta-row">
+          <div class="form-control">
+            <label for="robot-name">Robot Name *</label>
+            <input type="text" id="robot-name" class="form-input" placeholder="Robot Name" required>
+          </div>
+          <div class="form-control">
+            <label for="division-select">Competition Division *</label>
+            <select id="division-select" class="form-input" required>
+              <option value="" disabled selected>Select level</option>
+              <option value="senior">Senior Division</option>
+              <option value="junior">Junior Division</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="category-select">Competition Category *</label>
+            <select id="category-select" class="form-input" required disabled>
+              <option value="" disabled selected>Select Division First</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 2: School / University & Additional Notes -->
+        <div class="form-meta-row">
+          <div class="form-control" style="flex: 1 !important;">
+            <label for="school-university">School / University *</label>
+            <input type="text" id="school-university" class="form-input" placeholder="School or University Name" required>
+          </div>
+          <div class="form-control" style="flex: 2 !important;">
+            <label for="additional-notes">Additional Notes</label>
+            <input type="text" id="additional-notes" class="form-input" placeholder="e.g. Robot specs, special requirements (Optional)">
+          </div>
+        </div>
+
+        <!-- Dynamic Member Blocks Container -->
+        <div id="member-blocks-container">
+          <!-- Will be dynamically populated via JS -->
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn-submit">ENTER THE ARENA</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq">
+      <div class="section-title-wrap" data-reveal="fade-left">
+        <h2 class="section-title">Frequently<br>Asked Question</h2>
+        <p>///get detailed answers to the most commonly asked questions and important information you need.</p>
+        
+        <!-- Figma solid outline looping arrow, rotated -38deg -->
+        <svg class="faq-loop-arrow" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Fluid single stroke loop: #5B2711 at 13.21px thickness -->
+          <path d="M 10,90 L 70,90 C 115,90 145,35 145,85 C 145,135 75,135 85,85 C 92,50 120,60 160,100" stroke="#5B2711" stroke-width="13.21" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Solid triangular arrowhead attached directly to the stroke endpoint (160, 100) -->
+          <path d="M 160,100 L 140,96 L 152,118 Z" fill="#5B2711" stroke="#5B2711" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="faq-list">
+        <!-- Item 1 -->
+        <div class="faq-item" data-reveal="fade-up" data-reveal-delay="1">
+          <div class="faq-header">
+            <span class="faq-question">When will the competition take place?</span>
+            <span class="faq-arrow-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              The competition will take place at the end of October.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item" data-reveal="fade-up" data-reveal-delay="2">
+          <div class="faq-header">
+            <span class="faq-question">Where will the competition take place?</span>
+            <span class="faq-arrow-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              The competition will be held at NHSAST.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item" data-reveal="fade-up" data-reveal-delay="3">
+          <div class="faq-header">
+            <span class="faq-question">Can I participate in multiple competitions?</span>
+            <span class="faq-arrow-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Yes. You are allowed to participate in multiple competition categories as long as you meet the requirements for each one.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item" data-reveal="fade-up" data-reveal-delay="4">
+          <div class="faq-header">
+            <span class="faq-question">Can I use the same robot in multiple competitions?</span>
+            <span class="faq-arrow-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B2711" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Yes. The competitions have been designed to support this. Many categories share compatible dimensions and arena specifications, allowing the same robot to compete in multiple events whenever it satisfies the technical requirements.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="aboutus">
+      <div class="about-us-container">
+        <h2 class="about-title" data-reveal="fade-up">ABOUT <span class="brown-text">US</span></h2>
+        <p class="about-desc" data-reveal="fade-up" data-reveal-delay="1">
+          The Autonomous Systems Technologies (AST) Club is the first and only scientific club of the National Higher School of Autonomous Systems Technologies. Founded in 2024, it is the student-led hub for innovation in autonomous and intelligent systems. We unite students passionate about pushing the boundaries of what machines can perceive, decide, and execute independently. Our focus is on core technologies enabling autonomy: robotics, embedded systems, real-time control, and artificial intelligence.
+        </p>
+      </div>
+    </section>
+
+    <!-- Old Events Section (Placed directly below About Us) -->
+    <section id="old-events" class="old-events-section">
+      <div class="decorative-dashed-line dashed-line-brown" style="top: 10px; transform: translateX(-50%) rotate(-1deg);"></div>
+      
+      <div class="old-events-inner">
+        <div class="old-events-header" data-reveal="fade-up">
+          <h2 class="old-events-title">OLD <span class="brown-text">EVENTS</span></h2>
+        </div>
+
+        <!-- 3 Overlapping Poster Cards Stack -->
+        <div class="old-events-stack-wrap" data-reveal="fade-scale" data-reveal-delay="1">
+          <div class="old-events-stack" id="old-events-stack">
+            <!-- Left Card -->
+            <div class="old-event-card card-pos-left" id="card-left">
+              <div class="old-card-media">
+                <img src="" alt="" class="old-card-img" id="card-img-left">
+                <div class="old-card-gradient"></div>
+              </div>
+              <div class="old-card-body">
+                <span class="old-card-year" id="card-year-left"></span>
+                <h3 class="old-card-title" id="card-title-left"></h3>
+                <p class="old-card-category" id="card-cat-left"></p>
+                <div class="old-card-location" id="card-loc-left">
+                  <i class="fa-solid fa-location-dot"></i> <span id="card-loc-text-left"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center Card (Active, larger, unrotated, top z-index) -->
+            <div class="old-event-card card-pos-center" id="card-center">
+              <div class="old-card-media">
+                <img src="" alt="" class="old-card-img" id="card-img-center">
+                <div class="old-card-gradient"></div>
+              </div>
+              <div class="old-card-body">
+                <span class="old-card-year" id="card-year-center"></span>
+                <h3 class="old-card-title" id="card-title-center"></h3>
+                <p class="old-card-category" id="card-cat-center"></p>
+                <div class="old-card-location" id="card-loc-center">
+                  <i class="fa-solid fa-location-dot"></i> <span id="card-loc-text-center"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Card -->
+            <div class="old-event-card card-pos-right" id="card-right">
+              <div class="old-card-media">
+                <img src="" alt="" class="old-card-img" id="card-img-right">
+                <div class="old-card-gradient"></div>
+              </div>
+              <div class="old-card-body">
+                <span class="old-card-year" id="card-year-right"></span>
+                <h3 class="old-card-title" id="card-title-right"></h3>
+                <p class="old-card-category" id="card-cat-right"></p>
+                <div class="old-card-location" id="card-loc-right">
+                  <i class="fa-solid fa-location-dot"></i> <span id="card-loc-text-right"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left / Right Navigation Controls -->
+        <div class="old-events-nav-controls" data-reveal="fade-up" data-reveal-delay="2">
+          <button class="old-nav-btn btn-prev" id="old-events-prev" aria-label="Previous Event">
+            <svg viewBox="0 0 24 24">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="old-nav-btn btn-next" id="old-events-next" aria-label="Next Event">
+            <svg viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Hacker/Terminal Success Overlay Modal -->
+  <div class="terminal-overlay" id="terminal-overlay">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-title">AST FESTIVAL DATABASE DEPLOYMENT</span>
+        <div class="terminal-controls">
+          <span class="terminal-dot dot-red"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+        </div>
+      </div>
+      <div class="terminal-body" id="terminal-log">
+        <!-- Lines will type in here dynamically -->
+      </div>
+      <div style="background: #040506; padding: 12px 24px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: flex-end;">
+        <button id="close-terminal" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.75rem;">DISMISS TERMINAL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer block matching Figma banner card -->
+  <footer class="site-footer">
+    <div class="footer-card">
+      <!-- Left side: Title and Subtitle -->
+      <div class="footer-left">
+        <h2 class="footer-title">JOIN THE AST</h2>
+        <p class="footer-subtitle">Where innovation takes flight.</p>
+      </div>
+      
+      <!-- Right side: Social links (2x2 grid) and AST Logo -->
+      <div class="footer-right">
+        <div class="footer-social-grid">
+          <a href="https://facebook.com" target="_blank" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:info@ast.com" class="footer-social-link" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://discord.com" target="_blank" class="footer-social-link" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        </div>
+        <img src="src/assets/logo.png" alt="AST Logo" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <!-- Expanded Competition Card Modal -->
+  <div id="card-expand-modal" class="card-expand-modal" aria-hidden="true">
+    <div class="card-expand-backdrop" id="modal-backdrop"></div>
+    <div class="card-expand-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="card-expand-close" id="modal-close" aria-label="Close details">&times;</button>
+      
+      <div class="card-expand-banner">
+        <img id="modal-img" src="" alt="Competition Banner" class="card-expand-img">
+        <div class="card-expand-gradient"></div>
+        <div class="card-expand-header-content">
+          <span id="modal-division-badge" class="card-expand-badge">SENIOR DIVISION</span>
+          <h2 id="modal-title" class="card-expand-title">ROBOT FIGHTER</h2>
+          <p id="modal-subtitle" class="card-expand-subtitle">Full-Contact Combat Arena</p>
+        </div>
+      </div>
+
+      <div class="card-expand-body">
+        <p id="modal-description" class="card-expand-description"></p>
+        
+        <div class="card-expand-specs-container">
+          <h4 class="card-expand-specs-label">KEY ARENA SPECIFICATIONS:</h4>
+          <div class="card-expand-specs" id="modal-specs">
+            <!-- Spec pills inserted dynamically -->
+          </div>
+        </div>
+
+        <div class="card-expand-footer">
+          <span id="modal-crew-limit" class="card-expand-crew-info">
+            <i class="fa-solid fa-users"></i> <span id="modal-crew-text">Up to 6 Members / Team</span>
+          </span>
+          <button id="modal-register-btn" class="btn-modal-register">
+            REGISTER NOW <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

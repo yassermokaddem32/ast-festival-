@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     GOOGLE_CREDENTIALS_FILE: str = "credentials.json"
     
     # CORS Origins (Comma-separated string in env, parsed as list)
-    CORS_ORIGINS_RAW: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173"
+    CORS_ORIGINS_RAW: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,https://ast-festival.vercel.app,https://ast-festival-production.up.railway.app,*"
     
     @property
     def cors_origins(self) -> List[str]:

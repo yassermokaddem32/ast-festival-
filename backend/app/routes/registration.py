@@ -15,27 +15,24 @@ router = APIRouter(
 )
 def register_team(payload: RegistrationCreate):
     try:
-        # Convert schema model to dictionary
+        # Convert schema model directly to dictionary
         reg_dict = payload.model_dump()
         
         # Append to Google Sheet
         google_sheets_service.append_registration(reg_dict)
         
+        team_leader_name = payload.members[0].name if payload.members else "Team Leader"
+        
         return {
             "status": "success",
             "message": "Team registration successfully submitted to AST Central Database.",
-            "team_leader": payload.members[0].name,
+            "team_leader": team_leader_name,
             "robot_name": payload.robot_name
         }
     except FileNotFoundError as fnf_err:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=str(fnf_err)
-        )
-    except ValueError as val_err:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=str(val_err)
+            detail=f"Storage unavailable: {str(fnf_err)}"
         )
     except Exception as err:
         raise HTTPException(

@@ -42,10 +42,27 @@ class GoogleSheetsService:
                     "GOOGLE_SHEET_ID is not configured in the environment."
                 )
 
-            credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+            credentials_raw = os.getenv("GOOGLE_CREDENTIALS_JSON", "").strip()
 
-            if credentials_json:
-                credentials_info = json.loads(credentials_json)
+            if credentials_raw:
+                # Remove surrounding quotes if env var was wrapped in single or double quotes
+                if (credentials_raw.startswith('"') and credentials_raw.endswith('"')) or (credentials_raw.startswith("'") and credentials_raw.endswith("'")):
+                    credentials_raw = credentials_raw[1:-1].strip()
+
+                try:
+                    credentials_info = json.loads(credentials_raw)
+                    if isinstance(credentials_info, str):
+                        credentials_info = json.loads(credentials_info)
+                except Exception as json_err:
+                    # Fallback: extract the JSON object within curly braces if extra characters exist
+                    start_idx = credentials_raw.find('{')
+                    end_idx = credentials_raw.rfind('}')
+                    if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
+                        clean_json = credentials_raw[start_idx : end_idx + 1]
+                        credentials_info = json.loads(clean_json)
+                    else:
+                        raise ValueError(f"Failed to parse GOOGLE_CREDENTIALS_JSON environment variable: {json_err}")
+
                 creds = service_account.Credentials.from_service_account_info(
                     credentials_info,
                     scopes=SCOPES,

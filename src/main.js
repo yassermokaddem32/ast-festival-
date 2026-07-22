@@ -6,6 +6,7 @@ import eventPhoto4 from './assets/event_photo_4.jpg';
 import eventPhoto5 from './assets/event_photo_5.jpg';
 import logoImg from './assets/logo.png';
 import astFestivalLogo from './assets/ast_festival_logo.png';
+import cardMazeSolver from './assets/card_maze_solver.png';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set logo sources dynamically from bundled assets
@@ -442,6 +443,16 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'src/assets/card_sumo_bot.png',
       crewLimit: 'Up to 4 Members',
       specs: ['Autonomous Code Only', 'Low Center of Gravity', 'High Traction Magnetic Skirts']
+    },
+    'maze-solver': {
+      title: 'MAZE SOLVER',
+      division: 'senior',
+      category: 'maze-solver',
+      subtitle: 'Autonomous Labyrinth Navigation',
+      description: 'Micro-mouse autonomous robots navigating a complex grid labyrinth. Sensor processing, search algorithms (DFS, Flood Fill), and motor acceleration decide the champion.',
+      image: cardMazeSolver,
+      crewLimit: 'Up to 3 Members',
+      specs: ['Micro-Mouse Form Factor', 'Autonomous Mapping Code', 'High Precision Wall Sensors']
     },
     'rocket-league': {
       title: 'ROCKET LEAGUE',

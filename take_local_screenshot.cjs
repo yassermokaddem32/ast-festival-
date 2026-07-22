@@ -5,8 +5,9 @@ const path = require('path');
   console.log("Launching Microsoft Edge for local check...");
   const browser = await puppeteer.launch({
     executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
-    headless: false,
-    defaultViewport: { width: 1440, height: 900 }
+    headless: true,
+    defaultViewport: { width: 1440, height: 900 },
+    args: ['--no-sandbox']
   });
 
   try {

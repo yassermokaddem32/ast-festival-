@@ -612,20 +612,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (form && terminalOverlay && terminalLog) {
+  // --- Clean Modern Registration Modal Handlers ---
+  const regResultModal = document.getElementById('reg-result-modal');
+  const regResultBackdrop = document.getElementById('reg-result-backdrop');
+  const regResultBtn = document.getElementById('reg-result-btn');
+  const regResultIcon = document.getElementById('reg-result-icon');
+  const regResultRing = document.getElementById('reg-result-ring');
+  const regResultTitle = document.getElementById('reg-result-title');
+  const regResultMessage = document.getElementById('reg-result-message');
+  const submitBtn = form ? form.querySelector('.btn-submit') : null;
+
+  function showResultModal(isSuccess, title, message) {
+    if (!regResultModal) return;
+    
+    if (regResultIcon) {
+      regResultIcon.className = isSuccess ? 'fa-solid fa-check' : 'fa-solid fa-xmark';
+    }
+    if (regResultRing) {
+      if (isSuccess) {
+        regResultRing.classList.remove('error-ring');
+      } else {
+        regResultRing.classList.add('error-ring');
+      }
+    }
+    if (regResultTitle) {
+      regResultTitle.textContent = title;
+    }
+    if (regResultMessage) {
+      regResultMessage.textContent = message;
+    }
+    
+    regResultModal.classList.add('open');
+    regResultModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function hideResultModal() {
+    if (!regResultModal) return;
+    regResultModal.classList.remove('open');
+    regResultModal.setAttribute('aria-hidden', 'true');
+  }
+
+  if (regResultBtn) {
+    regResultBtn.addEventListener('click', hideResultModal);
+  }
+  if (regResultBackdrop) {
+    regResultBackdrop.addEventListener('click', hideResultModal);
+  }
+
+  if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const robotName = document.getElementById('robot-name').value.trim();
-      const division = divisionSelect.value;
-      const categoryId = categorySelect.value;
+      const division = divisionSelect ? divisionSelect.value : '';
+      const categoryId = categorySelect ? categorySelect.value : '';
       const schoolUniversity = document.getElementById('school-university').value.trim();
       const additionalNotes = document.getElementById('additional-notes').value.trim();
       const teamLeaderEl = document.getElementById('member-1-name');
       const teamLeader = teamLeaderEl ? teamLeaderEl.value.trim() : '';
 
       if (!robotName || !division || !categoryId || !schoolUniversity || !teamLeader) {
-        alert("Please complete the required fields.");
+        showResultModal(false, 'Incomplete Form', 'Please complete all required fields (*).');
         return;
       }
 
@@ -658,112 +705,64 @@ document.addEventListener('DOMContentLoaded', () => {
         members: members
       };
 
-      // Open Terminal Overlay
-      terminalOverlay.classList.add('open');
-      terminalLog.innerHTML = '';
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'SUBMIT MANIFEST';
 
-      const catName = category ? category.name : categoryId;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SUBMITTING...';
+      }
 
-      const initialLines = [
-        `[INIT] Booting Registration Client...`,
-        `[CONN] Connecting to AST Central Grid [ast.server.main]...`,
-        `[CONN] Connection established. Encryption: SHA-256`,
-        `[DATA] Serializing manifest payload...`,
-        `[DATA] Deploying Robot: "${robotName}" in [${division.toUpperCase()} DIVISION]`,
-        `[DATA] Category selected: "${catName}" (Crew Limit: ${limit})`,
-        `[DATA] School/University: "${schoolUniversity}"`,
-        `[DATA] Transmitting payload to central database...`
-      ];
-
-      let currentLine = 0;
-      function printLines(lines, callback) {
-        if (currentLine < lines.length) {
-          const p = document.createElement('p');
-          p.textContent = lines[currentLine];
-          
-          if (lines[currentLine].includes('[SUCCESS]') || lines[currentLine].includes('WELCOME')) {
-            p.style.color = '#39ff14'; // matrix green
-          } else if (lines[currentLine].includes('[ERROR]') || lines[currentLine].includes('[ABORT]')) {
-            p.style.color = '#ff3333'; // bright red
-          } else if (lines[currentLine].includes('[INIT]') || lines[currentLine].includes('[CONN]')) {
-            p.style.color = '#BA5310'; // brand accent
-          } else {
-            p.style.color = '#000000'; // dark text
-          }
-
-          terminalLog.appendChild(p);
-          terminalLog.scrollTop = terminalLog.scrollHeight;
-          currentLine++;
-          setTimeout(() => printLines(lines, callback), 350);
-        } else if (callback) {
-          callback();
+      fetch('https://ast-festival-production.up.railway.app/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(data => {
+            const errMsg = typeof data.detail === 'string' ? data.detail : (Array.isArray(data.detail) ? data.detail.map(d => d.msg || JSON.stringify(d)).join(', ') : JSON.stringify(data.detail));
+            throw new Error(errMsg || `Server error (Status ${response.status})`);
+          }).catch(err => {
+            throw new Error(err.message || `Server responded with HTTP ${response.status}`);
+          });
         }
-      }
+        return response.json();
+      })
+      .then(data => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
 
-      // Start printing initial logs, then send API request to production backend
-      printLines(initialLines, () => {
-        fetch('https://ast-festival-production.up.railway.app/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        })
-        .then(response => {
-          if (!response.ok) {
-            return response.json().then(data => {
-              const errMsg = typeof data.detail === 'string' ? data.detail : (Array.isArray(data.detail) ? data.detail.map(d => d.msg || JSON.stringify(d)).join(', ') : JSON.stringify(data.detail));
-              throw new Error(errMsg || `Server error (Status ${response.status})`);
-            }).catch(err => {
-              throw new Error(err.message || `Server responded with HTTP ${response.status}`);
-            });
-          }
-          return response.json();
-        })
-        .then(data => {
-          const successLines = [
-            `[CONN] Response received. Status: 201 Created`,
-            `[SUCCESS] Database transaction complete. Google Sheet row appended.`,
-            `[SUCCESS] Manifest accepted. Clearance ID: ${data.id || '0x' + Math.floor(Math.random()*16777215).toString(16).toUpperCase()}`,
-            `>>> WELCOME TO THE ARENA, ${teamLeader.toUpperCase()}. <<<`
-          ];
-          printLines(successLines, () => {
-            if (closeTerminalBtn) {
-              closeTerminalBtn.textContent = 'REGISTRATION SUCCESSFUL - DISMISS';
-              closeTerminalBtn.style.background = '#39ff14';
-              closeTerminalBtn.style.color = '#000000';
-            }
-          });
-        })
-        .catch(err => {
-          const errorLines = [
-            `[ERROR] Registration request failed.`,
-            `[ERROR] Server Details: ${err.message}`,
-            `[ABORT] Clearance DENIED. Please resolve the issue and try again.`
-          ];
-          printLines(errorLines, () => {
-            if (closeTerminalBtn) {
-              closeTerminalBtn.textContent = 'DISMISS ERROR & FIX FORM';
-              closeTerminalBtn.style.background = '#ff3333';
-              closeTerminalBtn.style.color = '#ffffff';
-            }
-          });
-        });
+        form.reset();
+        if (categorySelect) {
+          categorySelect.innerHTML = '<option value="" disabled selected>Select Division First</option>';
+          categorySelect.disabled = true;
+        }
+        if (memberContainer) {
+          memberContainer.innerHTML = '';
+        }
+
+        showResultModal(
+          true,
+          'Registration Successful!',
+          `Your team "${robotName}" has been successfully registered for the AST Festival.`
+        );
+      })
+      .catch(err => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+
+        showResultModal(
+          false,
+          'Registration Error',
+          err.message || 'Unable to complete registration. Please check your connection and try again.'
+        );
       });
-    });
-  }
-
-  if (closeTerminalBtn && terminalOverlay) {
-    closeTerminalBtn.addEventListener('click', () => {
-      terminalOverlay.classList.remove('open');
-      form.reset();
-      if (categorySelect) {
-        categorySelect.innerHTML = '<option value="" disabled selected>Select Division First</option>';
-        categorySelect.disabled = true;
-      }
-      if (memberContainer) {
-        memberContainer.innerHTML = '';
-      }
     });
   }
 

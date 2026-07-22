@@ -429,23 +429,32 @@
 
   </main>
 
-  <!-- Hacker/Terminal Success Overlay Modal -->
-  <div class="terminal-overlay" id="terminal-overlay">
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <span class="terminal-title">AST FESTIVAL DATABASE DEPLOYMENT</span>
-        <div class="terminal-controls">
-          <span class="terminal-dot dot-red"></span>
-          <span class="terminal-dot dot-yellow"></span>
-          <span class="terminal-dot dot-green"></span>
+  <!-- Clean Modern Registration Result Modal -->
+  <div class="reg-result-modal" id="reg-result-modal" aria-hidden="true">
+    <div class="reg-result-backdrop" id="reg-result-backdrop"></div>
+    <div class="reg-result-dialog" role="dialog" aria-modal="true" aria-labelledby="reg-result-title">
+      
+      <div class="reg-result-icon-wrap">
+        <div class="reg-result-success-ring" id="reg-result-ring">
+          <i class="fa-solid fa-check" id="reg-result-icon"></i>
         </div>
       </div>
-      <div class="terminal-body" id="terminal-log">
-        <!-- Lines will type in here dynamically -->
+      
+      <h2 id="reg-result-title" class="reg-result-title">Registration Successful!</h2>
+
+      <!-- Premium horizontal orange accent divider line -->
+      <div class="reg-result-divider"></div>
+      
+      <p id="reg-result-message" class="reg-result-message">
+        Your team has been successfully registered for the AST Festival.
+      </p>
+
+      <div class="reg-result-footer">
+        <button id="reg-result-btn" class="btn-reg-result-ok">
+          OK
+        </button>
       </div>
-      <div style="background: #040506; padding: 12px 24px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: flex-end;">
-        <button id="close-terminal" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.75rem;">DISMISS TERMINAL</button>
-      </div>
+
     </div>
   </div>
 

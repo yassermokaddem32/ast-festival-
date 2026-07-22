@@ -258,7 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 'maze-solver', name: 'Maze Solver', limit: 3 },
       { id: 'autonomous-sumo', name: 'Autonomous Sumo', limit: 4 },
       { id: 'robot-fighter', name: 'Robot Fighter', limit: 6 },
-      { id: 'aqua-ter-claw', name: 'Aqua Ter Claw', limit: 6 }
+      { id: 'aqua-ter-claw', name: 'Aqua Ter Claw', limit: 6 },
+      { id: 'drone', name: 'Drone', limit: 6 },
+      { id: 'innovation', name: 'Innovation', limit: 6 }
     ],
     junior: [
       { id: 'junior-all-terrain', name: 'Junior All-Terrain', limit: 4 },
@@ -441,16 +443,6 @@ document.addEventListener('DOMContentLoaded', () => {
       crewLimit: 'Up to 4 Members',
       specs: ['Autonomous Code Only', 'Low Center of Gravity', 'High Traction Magnetic Skirts']
     },
-    'rc-sumo': {
-      title: 'RC SUMO',
-      division: 'senior',
-      category: 'autonomous-sumo',
-      subtitle: 'Driver Skills & Tactical Dominance',
-      description: 'Tactical remote-controlled sumo battles where driver reflexes, wedge angles, and motor torque collide in elimination matches.',
-      image: 'src/assets/card_rc_sumo.png',
-      crewLimit: 'Up to 4 Members',
-      specs: ['2.4GHz RC Control', 'Tungsten/Steel Plated Chassis', 'Maximum Push Efficiency']
-    },
     'rocket-league': {
       title: 'ROCKET LEAGUE',
       division: 'senior',
@@ -461,10 +453,10 @@ document.addEventListener('DOMContentLoaded', () => {
       crewLimit: 'Up to 4 Members',
       specs: ['3v3 Team Coordination', 'Pneumatic Ball Kickers', 'High Speed Maneuverability']
     },
-    'innovation-project': {
-      title: 'INNOVATION PROJECT',
+    'innovation': {
+      title: 'INNOVATION',
       division: 'senior',
-      category: 'aqua-ter-claw',
+      category: 'innovation',
       subtitle: 'Real-World Hardware & AI Solutions',
       description: 'Exhibit industrial prototypes, autonomous drones, AI vision systems, or assistive robotics before a panel of expert judges and partners.',
       image: 'src/assets/card_innovation_project.png',
@@ -481,14 +473,14 @@ document.addEventListener('DOMContentLoaded', () => {
       crewLimit: 'Up to 6 Members',
       specs: ['Sealed Waterproof Enclosure', 'Thruster Vectoring', 'Underwater Payload Retrieval']
     },
-    'drones': {
-      title: 'DRONES',
+    'drone': {
+      title: 'DRONE',
       division: 'senior',
-      category: 'all-terrain',
+      category: 'drone',
       subtitle: 'FPV Air Racing & Autonomous Navigation',
       description: 'High-speed FPV drone racing through obstacle gates and autonomous waypoint flight missions inside protective safety netting.',
       image: 'src/assets/card_drones.png',
-      crewLimit: 'Up to 4 Members',
+      crewLimit: 'Up to 6 Members',
       specs: ['FPV HD Feed', 'Precision Altitude Hold', 'Safety Prop Guards Required']
     },
     'junior-all-terrain': {

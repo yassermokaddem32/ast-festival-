@@ -12,6 +12,8 @@ COMPETITION_LIMITS = {
     "autonomous-sumo": 4,
     "robot-fighter": 6,
     "aqua-ter-claw": 6,
+    "drone": 6,
+    "innovation": 6,
     # Junior Categories
     "junior-all-terrain": 4,
     "junior-rocket-league": 4,

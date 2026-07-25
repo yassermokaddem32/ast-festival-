@@ -1,9 +1,4 @@
 import './style.css';
-import eventPhoto1 from './assets/event_photo_1.jpg';
-import eventPhoto2 from './assets/event_photo_2.jpg';
-import eventPhoto3 from './assets/event_photo_3.jpg';
-import eventPhoto4 from './assets/event_photo_4.jpg';
-import eventPhoto5 from './assets/event_photo_5.jpg';
 import logoImg from './assets/logo.png';
 import astFestivalLogo from './assets/ast_festival_logo.png';
 import cardMazeSolver from './assets/card_maze_solver.png';
@@ -154,69 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel('senior-carousel', 'senior-prev', 'senior-next', '.slider-dots');
   initCarousel('junior-carousel', 'junior-prev', 'junior-next', '.slider-dots');
 
-  // --- Dedicated Old Events Section Component ---
-  const oldEvents = [
-    { image: eventPhoto1 },
-    { image: eventPhoto2 },
-    { image: eventPhoto3 },
-    { image: eventPhoto4 },
-    { image: eventPhoto5 }
-  ];
 
-  let currentEventIndex = 0;
-
-  function updateOldEventCard(cardIdPrefix, eventData) {
-    const img = document.getElementById(`card-img-${cardIdPrefix}`);
-    if (img) img.src = eventData.image;
-  }
-
-  function renderOldEventsStack() {
-    const total = oldEvents.length;
-    if (total === 0) return;
-
-    const centerIdx = currentEventIndex;
-    const leftIdx = (currentEventIndex - 1 + total) % total;
-    const rightIdx = (currentEventIndex + 1) % total;
-
-    updateOldEventCard('center', oldEvents[centerIdx]);
-    updateOldEventCard('left', oldEvents[leftIdx]);
-    updateOldEventCard('right', oldEvents[rightIdx]);
-  }
-
-  const btnOldPrev = document.getElementById('old-events-prev');
-  const btnOldNext = document.getElementById('old-events-next');
-  const cardLeft = document.getElementById('card-left');
-  const cardRight = document.getElementById('card-right');
-
-  if (btnOldNext) {
-    btnOldNext.addEventListener('click', () => {
-      currentEventIndex = (currentEventIndex + 1) % oldEvents.length;
-      renderOldEventsStack();
-    });
-  }
-
-  if (btnOldPrev) {
-    btnOldPrev.addEventListener('click', () => {
-      currentEventIndex = (currentEventIndex - 1 + oldEvents.length) % oldEvents.length;
-      renderOldEventsStack();
-    });
-  }
-
-  if (cardLeft) {
-    cardLeft.addEventListener('click', () => {
-      currentEventIndex = (currentEventIndex - 1 + oldEvents.length) % oldEvents.length;
-      renderOldEventsStack();
-    });
-  }
-
-  if (cardRight) {
-    cardRight.addEventListener('click', () => {
-      currentEventIndex = (currentEventIndex + 1) % oldEvents.length;
-      renderOldEventsStack();
-    });
-  }
-
-  renderOldEventsStack();
 
   // --- FAQ Accordions Toggle ---
   const faqItems = document.querySelectorAll('.faq-item');
@@ -545,6 +478,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalSubtitle) modalSubtitle.textContent = data.subtitle;
     if (modalDesc) modalDesc.textContent = data.description;
     if (modalCrewText) modalCrewText.textContent = data.crewLimit;
+
+    // Show VIEW CDC button and apply specific drone styling
+    const cdcBtn = document.getElementById('modal-view-cdc-btn');
+    if (expandModal) {
+      if (compKey === 'drone') {
+        if (cdcBtn) cdcBtn.style.display = 'inline-flex';
+        expandModal.classList.add('drone-modal');
+      } else {
+        if (cdcBtn) cdcBtn.style.display = 'none';
+        expandModal.classList.remove('drone-modal');
+      }
+    }
 
     if (modalSpecs) {
       modalSpecs.innerHTML = '';

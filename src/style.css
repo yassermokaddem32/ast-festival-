@@ -4100,8 +4100,6 @@ html, body {
     width: 100% !important;
   }
 }
-
-/* 6. Small Phones (max-width: 480px) */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 2.5rem !important;
@@ -4115,5 +4113,67 @@ html, body {
   .hero-countdown-item {
     width: 50px !important;
     height: 50px !important;
+  }
+}
+
+/* ==========================================================================
+   FURTHER MOBILE REFINEMENTS
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  /* Fix unclickable cards on mobile by disabling overlay pointer events */
+  .division-card, .carousel-card {
+    pointer-events: auto !important;
+  }
+  .division-card::before, .division-card::after,
+  .carousel-card::before, .carousel-card::after {
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Competition Modal Fixes */
+  .card-expand-dialog {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    margin: 15px !important;
+  }
+  
+  /* Mobile Typography Refinements */
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    margin-bottom: 15px !important;
+  }
+  .hero-subtitle {
+    font-size: 16px !important;
+    margin-bottom: 25px !important;
+    letter-spacing: 0 !important;
+  }
+  .section-title {
+    font-size: clamp(2rem, 7vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+  }
+  .about-title {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 1 !important;
+  }
+  .about-subtitle {
+    font-size: 18px !important;
+  }
+  .about-paragraph {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+  }
+
+  /* About AST Festival Section Fixes */
+  .about-grid {
+    gap: 60px !important; /* Move logo lower from text */
+  }
+  .about-circle-container {
+    margin-bottom: 20px !important;
   }
 }

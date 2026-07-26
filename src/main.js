@@ -469,8 +469,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  let currentActiveModalData = null;
+
   function openExpandModal(compKey) {
     const data = competitionDetails[compKey] || competitionDetails['senior-division'];
+    currentActiveModalData = data;
 
     if (modalImg) modalImg.src = data.image;
     if (modalBadge) modalBadge.textContent = (data.division === 'senior' ? 'SENIOR DIVISION' : 'JUNIOR DIVISION');
@@ -545,6 +548,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalRegisterBtn) {
     modalRegisterBtn.addEventListener('click', () => {
       closeExpandModal();
+
+      if (currentActiveModalData) {
+        selectCategoryInForm(currentActiveModalData.division, currentActiveModalData.category);
+      }
 
       // Smooth scroll to registration section
       const regSection = document.getElementById('registration');

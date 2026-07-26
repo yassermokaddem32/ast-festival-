@@ -318,7 +318,7 @@ header {
 
 .hero-countdown {
   display: flex;
-  gap: 23px; /* Exact gap from Figma */
+  gap: 24px;
   justify-content: center;
   margin: 0;
 }
@@ -327,30 +327,53 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.05);
+  min-width: 100px;
 }
 
 .hero-countdown-value {
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 2.6rem; /* Large black numbers */
+  font-size: 3rem;
   font-weight: 700;
-  color: #000000;
-  background: #ffffff; /* White background */
-  width: 76px; /* Sized boxes */
-  height: 76px;
+  color: #111111;
+  background: transparent;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  box-shadow: none;
+  line-height: 1;
 }
 
 .hero-countdown-unit {
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 0.95rem; /* Labels underneath */
+  font-size: 0.95rem;
   font-weight: 700;
-  text-transform: lowercase; /* Singular day, hour, min, sec */
-  color: #ffffff;
+  text-transform: uppercase;
+  color: #5B2711;
   margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+.countdown-ended-msg {
+  background: #ffffff;
+  color: #111111;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 20px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid #5B2711;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .hero-cta {
@@ -1892,11 +1915,12 @@ footer::before {
   .hero-countdown {
     gap: 12px;
   }
+  .hero-countdown-item {
+    padding: 12px 16px;
+    min-width: 80px;
+  }
   .hero-countdown-value {
-    width: 58px;
-    height: 58px;
-    font-size: 1.8rem;
-    border-radius: 10px;
+    font-size: 2.2rem;
   }
   .hero-countdown-unit {
     font-size: 0.8rem;
@@ -3181,11 +3205,11 @@ h1, h2, h3, h4, p, span, a {
   }
 
   .hero-countdown-value {
-    font-size: 1.3rem !important;
+    font-size: 1.8rem !important;
   }
 
   .hero-countdown-unit {
-    font-size: 0.65rem !important;
+    font-size: 0.75rem !important;
   }
 
   .hero-deployment-label {
@@ -3584,11 +3608,11 @@ h1, h2, h3, h4, p, span, a {
   }
 
   .hero-countdown-value {
-    font-size: 1.15rem !important;
+    font-size: 1.4rem !important;
   }
 
   .hero-countdown-unit {
-    font-size: 0.6rem !important;
+    font-size: 0.65rem !important;
   }
 
   .carousel-card {
@@ -4037,8 +4061,8 @@ html, body {
     justify-content: center !important;
   }
   .hero-countdown-item {
-    width: 60px !important;
-    height: 60px !important;
+    padding: 12px 16px !important;
+    min-width: 80px !important;
   }
   .hero-title {
     font-size: clamp(3rem, 8vw, 4rem) !important;
@@ -4118,8 +4142,8 @@ html, body {
   }
   
   .hero-countdown-item {
-    width: 50px !important;
-    height: 50px !important;
+    padding: 10px 14px !important;
+    min-width: 70px !important;
   }
 }
 

@@ -75,17 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Countdown Timer (30 days countdown from now) ---
-  const countdownTarget = new Date();
-  countdownTarget.setDate(countdownTarget.getDate() + 30);
-  countdownTarget.setHours(countdownTarget.getHours() + 25); // matching figma text: 30 days 25 hours
+  // --- Countdown Timer ---
+  const countdownTarget = new Date('2026-08-16T00:00:00');
 
   function updateCountdown() {
     const now = new Date().getTime();
     const difference = countdownTarget.getTime() - now;
 
-    if (difference < 0) {
-      document.querySelector('.countdown').innerHTML = "<div class='countdown-item'><span class='countdown-value'>SYSTEM ONLINE</span></div>";
+    if (difference <= 0) {
+      const container = document.querySelector('.hero-countdown');
+      const label = document.querySelector('.hero-countdown-label');
+      if (label) label.style.display = 'none';
+      if (container) {
+        container.innerHTML = "<div class='countdown-ended-msg'>The Competition Is Now Live</div>";
+      }
       return;
     }
 

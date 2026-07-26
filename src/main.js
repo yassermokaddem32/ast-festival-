@@ -727,45 +727,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const composition = document.querySelector('.about-image-composition');
 
   if (aboutLeftBtn && aboutRightBtn && composition) {
-    const imgLeft = composition.querySelector('.about-img-left');
-    const imgCenter = composition.querySelector('.about-img-center');
-    const imgRight = composition.querySelector('.about-img-right');
+    const images = Array.from(composition.querySelectorAll('img'));
 
-    if (imgLeft && imgCenter && imgRight) {
-      let imagesList = [
-        { el: imgLeft, baseClass: 'about-img-left' },
-        { el: imgCenter, baseClass: 'about-img-center' },
-        { el: imgRight, baseClass: 'about-img-right' }
-      ];
-
+    if (images.length > 0) {
       function updateCompositionClasses() {
-        imagesList.forEach((item, index) => {
+        images.forEach((img, index) => {
           // Clear current class states
-          item.el.classList.remove('about-img-left', 'about-img-center', 'about-img-right');
+          img.classList.remove('about-img-left', 'about-img-center', 'about-img-right', 'about-img-hidden');
           
           // Re-apply target class based on its active index
-          // Left card at index 0, Center at index 1, Right card at index 2
           if (index === 0) {
-            item.el.classList.add('about-img-left');
+            img.classList.add('about-img-left');
           } else if (index === 1) {
-            item.el.classList.add('about-img-center');
+            img.classList.add('about-img-center');
           } else if (index === 2) {
-            item.el.classList.add('about-img-right');
+            img.classList.add('about-img-right');
+          } else {
+            img.classList.add('about-img-hidden');
           }
         });
       }
 
+      // Initialize
+      updateCompositionClasses();
+
       aboutLeftBtn.addEventListener('click', () => {
-        // Shift left card into center (shift right in array representation)
-        const last = imagesList.pop();
-        imagesList.unshift(last);
+        const last = images.pop();
+        images.unshift(last);
         updateCompositionClasses();
       });
 
       aboutRightBtn.addEventListener('click', () => {
-        // Shift right card into center (shift left in array representation)
-        const first = imagesList.shift();
-        imagesList.push(first);
+        const first = images.shift();
+        images.push(first);
         updateCompositionClasses();
       });
     }

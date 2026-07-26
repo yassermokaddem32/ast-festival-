@@ -4176,4 +4176,59 @@ html, body {
   .about-circle-container {
     margin-bottom: 20px !important;
   }
+
+  /* Missing Images on Mobile Fixes */
+  .card-expand-right {
+    flex: none !important;
+    width: 100% !important;
+    height: 240px !important;
+    display: block !important;
+  }
+  .card-expand-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    opacity: 1 !important;
+    border-radius: 20px 20px 0 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Compact Tech Specs Card on Mobile */
+  .btn-cdc {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px 20px !important;
+    gap: 15px !important;
+    height: auto !important;
+  }
+  .btn-cdc-left {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+  .btn-cdc-arrow {
+    align-self: center !important;
+    margin-top: 0 !important;
+  }
+  .btn-cdc-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .btn-cdc-text-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .btn-cdc-specs {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+  }
+  .btn-cdc-view {
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+  }
 }

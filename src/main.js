@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'robot-fighter',
       subtitle: 'High-Stakes Engineering Arenas',
       description: 'The Senior Division brings together university students, builders, and elite engineers to battle in combat arenas, autonomous tracking tracks, and aerial obstacles.',
-      image: 'src/assets/senior_bg.png',
+      image: new URL('./assets/senior_bg.png', import.meta.url).href,
       crewLimit: 'Up to 6 Members / Team',
       specs: ['Autonomous & RC Arenas', 'Heavyweight Combat Rules', 'Live Streamed Finals']
     },
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'junior-all-terrain',
       subtitle: 'Interactive STEM Robotics',
       description: 'The Junior Division brings young builders, school teams, and STEM enthusiasts to construct agile, fast-paced robots across dynamic field challenges.',
-      image: 'src/assets/junior_bg.png',
+      image: new URL('./assets/junior_bg.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members / Team',
       specs: ['STEM & Foundational Robotics', 'Interactive Field Challenges', 'Certificates & Trophies']
     },
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'all-terrain',
       subtitle: 'Off-Road Obstacle & Speed Challenge',
       description: 'Navigating rugged off-road obstacles, steep inclines, loose gravel, and water trenches under strict time limits.',
-      image: 'src/assets/card_all_terrain.png',
+      image: new URL('./assets/card_all_terrain.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members',
       specs: ['High Torque Drivetrain', 'All-Weather Chassis', 'Time-Trial Obstacle Course']
     },
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'robot-fighter',
       subtitle: 'Full-Contact Combat Arena',
       description: 'Heavy-hitting spinners, flippers, and armored chassis engage in 3-minute high-octane elimination matches inside a bulletproof enclosure.',
-      image: 'src/assets/card_robot_fighter.png',
+      image: new URL('./assets/card_robot_fighter.png', import.meta.url).href,
       crewLimit: 'Up to 6 Members',
       specs: ['Combat Weight Limits', 'Fail-Safe Radio Cutoffs', 'Polycarbonate Safety Arena']
     },
@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'line-follower',
       subtitle: 'High-Speed Autonomous Tracking',
       description: 'Blazing fast autonomous speed bots tracing intricate lines, sharp turns, and line breaks with high-precision optical sensors and PID control.',
-      image: 'src/assets/card_line_follower.png',
+      image: new URL('./assets/card_line_follower.png', import.meta.url).href,
       crewLimit: 'Up to 3 Members',
       specs: ['PID Speed Tuning', 'Laser / Infrared Line Sensor', 'Precision Speed Control']
     },
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'autonomous-sumo',
       subtitle: 'Pure Code & Raw Force in the Dohyo',
       description: 'Heavyweight sumo bots in a circular ring using ultrasonic and infrared sensors to detect opponents and force them out of the arena.',
-      image: 'src/assets/card_sumo_bot.png',
+      image: new URL('./assets/card_sumo_bot.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members',
       specs: ['Autonomous Code Only', 'Low Center of Gravity', 'High Traction Magnetic Skirts']
     },
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'rocket-league',
       subtitle: 'Robotic Vehicle Football Arenas',
       description: 'Fast RC vehicles playing 3v3 football matches with a custom oversized ball. Drivers execute turbo boosts, saves, and tactical kicks.',
-      image: 'src/assets/card_rocket_league.png',
+      image: new URL('./assets/card_rocket_league.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members',
       specs: ['3v3 Team Coordination', 'Pneumatic Ball Kickers', 'High Speed Maneuverability']
     },
@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'innovation',
       subtitle: 'Real-World Hardware & AI Solutions',
       description: 'Exhibit industrial prototypes, autonomous drones, AI vision systems, or assistive robotics before a panel of expert judges and partners.',
-      image: 'src/assets/card_innovation_project.png',
+      image: new URL('./assets/card_innovation_project.png', import.meta.url).href,
       crewLimit: 'Up to 6 Members',
       specs: ['Live Demonstration', 'Technical Poster & Pitch', 'Commercial Viability Judging']
     },
@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'aqua-ter-claw',
       subtitle: 'Aquatic Navigation & Submersible Systems',
       description: 'Submersible and surface water craft competing in buoyancy control, underwater obstacle retrieval, and hydrodynamic propulsion efficiency.',
-      image: 'src/assets/card_water_robot.png',
+      image: new URL('./assets/card_water_robot.png', import.meta.url).href,
       crewLimit: 'Up to 6 Members',
       specs: ['Sealed Waterproof Enclosure', 'Thruster Vectoring', 'Underwater Payload Retrieval']
     },
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'drone',
       subtitle: 'FPV Air Racing & Autonomous Navigation',
       description: 'High-speed FPV drone racing through obstacle gates and autonomous waypoint flight missions inside protective safety netting.',
-      image: 'src/assets/card_drones.png',
+      image: new URL('./assets/card_drones.png', import.meta.url).href,
       crewLimit: 'Up to 6 Members',
       specs: ['FPV HD Feed', 'Precision Altitude Hold', 'Safety Prop Guards Required']
     },
@@ -433,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'junior-all-terrain',
       subtitle: 'Youth STEM Off-Road Expedition',
       description: 'Young builders control custom rover builds across ramps, bridges, and sand traps, learning mechanical gear ratios in action.',
-      image: 'src/assets/card_junior_all_terrain.png',
+      image: new URL('./assets/card_junior_all_terrain.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members',
       specs: ['Custom Gearbox Tuning', 'Flexible Suspension', 'Interactive STEM Scoring']
     },
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'junior-rocket-league',
       subtitle: 'Junior RC Vehicle Soccer',
       description: 'Energetic RC car soccer matches designed for junior teams to build teamwork, driving reflexes, and mechanical skills.',
-      image: 'src/assets/card_junior_rocket_league.png',
+      image: new URL('./assets/card_junior_rocket_league.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members',
       specs: ['Teamwork & Strategy', 'Standardized Battery Packs', 'High Energy Matches']
     },
@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'junior-line-follower',
       subtitle: 'Foundational Autonomous Robotics',
       description: 'Junior teams code sensor logic to guide their bots through track loops, intersections, and speed bursts.',
-      image: 'src/assets/card_junior_line_follower.png',
+      image: new URL('./assets/card_junior_line_follower.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members',
       specs: ['Visual Block / C++ Coding', '2-Channel Line Detection', 'Speed & Accuracy Bonus']
     },
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'junior-dodgeball',
       subtitle: 'Dynamic Ball Launching & Evasion',
       description: 'Robots feature ball-fetching mechanisms and catapult/flywheel launchers to eliminate opponent bots on a dodgeball court.',
-      image: 'src/assets/card_junior_dodgeball.png',
+      image: new URL('./assets/card_junior_dodgeball.png', import.meta.url).href,
       crewLimit: 'Up to 4 Members',
       specs: ['Soft Foam Ball Projectiles', 'Autonomous & RC Modes', 'Exciting Elimination Rounds']
     }
@@ -486,10 +486,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const cdcBtn = document.getElementById('modal-view-cdc-btn');
     if (expandModal) {
       if (compKey === 'drone') {
-        if (cdcBtn) cdcBtn.style.display = 'inline-flex';
+        if (cdcBtn) cdcBtn.style.setProperty('display', 'inline-flex', 'important');
         expandModal.classList.add('drone-modal');
       } else {
-        if (cdcBtn) cdcBtn.style.display = 'none';
+        if (cdcBtn) cdcBtn.style.setProperty('display', 'none', 'important');
         expandModal.classList.remove('drone-modal');
       }
     }
@@ -811,3 +811,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+

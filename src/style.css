@@ -1728,34 +1728,33 @@ footer::before {
   box-sizing: border-box !important;
 }
 
-.footer-social-grid {
+.footer-contact-list {
   position: absolute !important;
-  top: -20px !important; /* shifted downward by 12px */
-  right: 0 !important; /* aligned to the right edge, matching the logo */
-  left: auto !important;
-  transform: none !important;
-  width: 160px !important;
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 15px 40px !important; /* clean 2x2 grid gap */
-  margin: 0 !important;
-  justify-items: end !important;
-  align-items: center !important;
+  top: -30px !important;
+  right: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  align-items: flex-end !important;
 }
 
-.footer-social-link {
-  width: 60px !important; /* exact figma dimensions */
-  height: 60px !important;
+.footer-contact-link {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  gap: 12px !important;
   color: #ffffff !important;
-  font-size: 2.2rem !important;
-  transition: transform 0.2s ease !important;
+  font-family: 'Roboto Condensed', sans-serif !important;
+  font-size: 1.1rem !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
 }
 
-.footer-social-link:hover {
-  transform: scale(1.15) !important;
+.footer-contact-link i {
+  font-size: 1.5rem !important;
+}
+
+.footer-contact-link:hover {
+  transform: translateX(-5px) !important;
   color: #EFE9E7 !important;
 }
 
@@ -3166,7 +3165,7 @@ h1, h2, h3, h4, p, span, a {
   }
 
   .hero-title {
-    font-size: clamp(2.8rem, 10vw, 5.0rem) !important;
+    font-size: clamp(3.2rem, 11.5vw, 5.7rem) !important;
     line-height: 1.04 !important;
     letter-spacing: 0.01em !important;
     margin-bottom: 12px !important;
@@ -3250,14 +3249,14 @@ h1, h2, h3, h4, p, span, a {
   #faq .section-title,
   #aboutus .about-title,
   .footer-title {
-    font-size: clamp(2.5rem, 8.5vw, 4.2rem) !important;
+    font-size: clamp(2.9rem, 9.8vw, 4.8rem) !important;
     line-height: 1.05 !important;
     text-align: center !important;
     margin: 0 0 10px 0 !important;
   }
 
   #registration .section-title {
-    font-size: clamp(2.0rem, 7.2vw, 3.6rem) !important;
+    font-size: clamp(2.3rem, 8.3vw, 4.1rem) !important;
     line-height: 1.08 !important;
     text-align: center !important;
     word-break: break-word !important;
@@ -3304,7 +3303,7 @@ h1, h2, h3, h4, p, span, a {
   }
 
   .about-paragraph {
-    font-size: 0.98rem !important;
+    font-size: 0.85rem !important;
     line-height: 1.6 !important;
     text-align: center !important;
   }
@@ -3554,21 +3553,22 @@ h1, h2, h3, h4, p, span, a {
     height: auto !important;
   }
 
-  .footer-social-grid {
+  .footer-contact-list {
     position: static !important;
-    width: 150px !important;
+    width: 100% !important;
     margin: 0 auto !important;
-    justify-items: center !important;
     align-items: center !important;
     transform: none !important;
     top: auto !important;
     right: auto !important;
   }
 
-  .footer-social-link {
-    width: 48px !important;
-    height: 48px !important;
-    font-size: 1.7rem !important;
+  .footer-contact-link {
+    font-size: 0.9rem !important;
+  }
+
+  .footer-contact-link i {
+    font-size: 1.2rem !important;
   }
 
   .footer-logo {
@@ -3586,7 +3586,7 @@ h1, h2, h3, h4, p, span, a {
    -------------------------------------------------------------------------- */
 @media (max-width: 375px) {
   .hero-title {
-    font-size: 2.6rem !important;
+    font-size: 3.0rem !important;
   }
 
   .about-title,
@@ -3595,11 +3595,11 @@ h1, h2, h3, h4, p, span, a {
   #faq .section-title,
   #aboutus .about-title,
   .footer-title {
-    font-size: 2.1rem !important;
+    font-size: 2.45rem !important;
   }
 
   #registration .section-title {
-    font-size: 1.7rem !important;
+    font-size: 2.0rem !important;
   }
 
   .hero-countdown {
@@ -4098,10 +4098,11 @@ html, body {
     align-items: center !important;
     gap: 20px !important;
   }
-  .footer-social-grid {
+  .footer-contact-list {
     position: static !important;
     transform: none !important;
     margin: 0 auto !important;
+    align-items: center !important;
   }
   .footer-logo {
     position: static !important;
@@ -4201,7 +4202,7 @@ html, body {
   .about-paragraph,
   .tech-specs-text,
   .aboutus-desc {
-    font-size: 14px !important;
+    font-size: 12px !important;
     line-height: 1.5 !important;
     text-align: left !important;
   }
